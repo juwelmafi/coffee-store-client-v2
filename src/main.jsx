@@ -15,6 +15,8 @@ import CoffeeDetails from './components/CoffeeDetails.jsx';
 import SignIn from './components/SignIn.jsx';
 import SignOut from './components/Signup.jsx';
 import AuthProvider from './constext/AuthProvider.jsx';
+import UserProfile from './components/userProfile.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,7 @@ const router = createBrowserRouter([
       {
         index: true,
         loader: ()=> fetch('http://localhost:4000/coffees'),
+        hydrateFallbackElement: <p>Loading...</p>,
         Component: Home,
       },
       {
@@ -33,11 +36,13 @@ const router = createBrowserRouter([
       {
         path: "/update-coffee/:id",
         loader: ({params})=> fetch(`http://localhost:4000/coffees/${params.id}`),
+        hydrateFallbackElement: <p>Loading...</p>,
         Component: UpdateCoffee
       },
       {
         path:"/coffees/:id",
         loader: ({params})=> fetch(`http://localhost:4000/coffees/${params.id}`),
+        hydrateFallbackElement: <p>Loading...</p>,
         Component: CoffeeDetails,
       },
       {
@@ -47,6 +52,12 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         Component: SignOut
+      },
+      {
+        path: '/user-profile',
+        loader: ()=> fetch('http://localhost:4000/users'),
+        hydrateFallbackElement: <p>Loading...</p>,
+        Component: UserProfile,
       }
     ]
   },

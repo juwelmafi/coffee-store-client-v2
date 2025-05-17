@@ -9,14 +9,20 @@ const Signup = () => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    const { email, password, ...userProfile } = Object.fromEntries(
+    const { email, password, ...restFormData } = Object.fromEntries(
       formData.entries()
     );
 
-    console.log(email, password, userProfile);
     createUser(email, password)
       .then((result) => {
         console.log(result);
+
+        const userProfile = {
+          email, 
+          ...restFormData,
+          creationTime: result?.user?.metadata?.creationTime,
+          lastSignInTime: result?.user.metadata?.lastSignInTime,
+        }
 
         // save profile info in db //
 
