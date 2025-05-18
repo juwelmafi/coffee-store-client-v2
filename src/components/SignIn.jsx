@@ -5,13 +5,13 @@ const SignIn = () => {
   const {logInUser} = useContext(AuthContext);
   const handleSignin = (e)=>{
     e.preventDefault();
-    console.log("sing in clicked")
+    // console.log("sing in clicked")
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password)
+    // console.log(email, password)
     logInUser(email, password)
     .then(result=> {
-      console.log(result.user)
+      // console.log(result.user)
     
       // update last sign in to db //
       const singInInfo = {
@@ -19,7 +19,7 @@ const SignIn = () => {
         lastSignInTime: result.user?.metadata?.lastSignInTime,
       }
 
-      fetch('http://localhost:4000/users', {
+      fetch('https://coffee-store-server-nine-neon.vercel.app/users', {
         method: "PATCH",
         headers: {
           "content-type" : "application/json"
@@ -27,8 +27,8 @@ const SignIn = () => {
         body: JSON.stringify(singInInfo)
       })
       .then(res=> res.json())
-      .then(data=> {
-        console.log('data afer update', data)
+      .then(()=> {
+        // console.log('data afer update', data)
       })
 
 

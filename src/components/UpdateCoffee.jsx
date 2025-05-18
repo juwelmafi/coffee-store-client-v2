@@ -11,11 +11,11 @@ const UpdateCoffee = () => {
     const form = e.target;
     const formData = new FormData(form);
     const updatedCoffee = Object.fromEntries(formData.entries());
-    console.log(updatedCoffee);
+    // console.log(updatedCoffee);
 
     // update coffee of db //
 
-    fetch(`http://localhost:4000/coffees/${_id}`, {
+    fetch(`https://coffee-store-server-nine-neon.vercel.app/coffees/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

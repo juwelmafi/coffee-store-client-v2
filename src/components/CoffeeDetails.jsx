@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router";
 
 const CoffeeDetails = () => {
   const coffee = useLoaderData();
-  console.log(coffee);
+  // console.log(coffee);
   const { name, photo, price, quantity, supplier, details } = coffee;
   return (
     <div className="flex flex-col gap-5 justify-center items-center">

@@ -7,11 +7,11 @@ const AddCoffee = () => {
     const form = e.target;
     const formData = new FormData(form);
     const newCoffee = Object.fromEntries(formData.entries());
-    console.log(newCoffee);
+    // console.log(newCoffee);
 
     // add coffee to db
 
-    fetch("http://localhost:4000/coffees", {
+    fetch("https://coffee-store-server-nine-neon.vercel.app/coffees", {
       method: "POST",
       headers: {
         "content-type": "application/json",

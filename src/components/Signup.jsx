@@ -15,7 +15,7 @@ const Signup = () => {
 
     createUser(email, password)
       .then((result) => {
-        console.log(result);
+        // console.log(result);
 
         const userProfile = {
           email, 
@@ -26,7 +26,7 @@ const Signup = () => {
 
         // save profile info in db //
 
-        fetch("http://localhost:4000/users", {
+        fetch("https://coffee-store-server-nine-neon.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -34,8 +34,8 @@ const Signup = () => {
           body: JSON.stringify(userProfile),
         })
           .then((res) => res.json())
-          .then((data) => {
-            console.log("after profile save", data);
+          .then(() => {
+            // console.log("after profile save", data);
             Swal.fire({
               title: "Good job!",
               text: "Coffee added successfuly!",

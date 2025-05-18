@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: ()=> fetch('http://localhost:4000/coffees'),
+        loader: ()=> fetch('https://coffee-store-server-nine-neon.vercel.app/coffees'),
         hydrateFallbackElement: <p>Loading...</p>,
         Component: Home,
       },
@@ -35,13 +35,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/update-coffee/:id",
-        loader: ({params})=> fetch(`http://localhost:4000/coffees/${params.id}`),
+        loader: ({params})=> fetch(`https://coffee-store-server-nine-neon.vercel.app/coffees/${params.id}`),
         hydrateFallbackElement: <p>Loading...</p>,
         Component: UpdateCoffee
       },
       {
         path:"/coffees/:id",
-        loader: ({params})=> fetch(`http://localhost:4000/coffees/${params.id}`),
+        loader: ({params})=> fetch(`https://coffee-store-server-nine-neon.vercel.app/coffees/${params.id}`),
         hydrateFallbackElement: <p>Loading...</p>,
         Component: CoffeeDetails,
       },
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/user-profile',
-        loader: ()=> fetch('http://localhost:4000/users'),
+        loader: ()=> fetch('https://coffee-store-server-nine-neon.vercel.app/users'),
         hydrateFallbackElement: <p>Loading...</p>,
         Component: UserProfile,
       }

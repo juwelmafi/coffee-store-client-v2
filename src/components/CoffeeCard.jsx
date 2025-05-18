@@ -21,12 +21,12 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         // delete from db//
-        fetch(`http://localhost:4000/coffees/${id}`, {
+        fetch(`https://coffee-store-server-nine-neon.vercel.app/coffees/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log("after delete", data);
+            // console.log("after delete", data);
             if (data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",
